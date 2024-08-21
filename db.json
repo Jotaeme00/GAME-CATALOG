@@ -1,0 +1,18 @@
+
+{   
+        "id": 1,
+        "name": "Zelda",
+        "genre": "RPG",
+       "releaseDate": "2015",
+       "platform": "Playstation 4",
+       "rating": 2000   
+}
+
+{   
+    "id": 2,
+        "name": "FIFA",
+        "genre": "Esportes",
+       "releaseDate": "2024",
+       "platform": "Playstation 4/5",
+       "rating": 2000   
+}
