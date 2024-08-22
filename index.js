@@ -45,21 +45,14 @@ const games = [
 })
 */
 
-app.get('/games/:id', (req, res) => {
-    const { id } = req.params;
-    const game = games.find(g => g.id == id);
-    
-    if (game) {
-        res.json(game);
-    } else {
-        res.status(404).send('Game not found');
-    }
-});
+app.get('/games', (req, res) => {
+    res.json(games);
+  });
 
 
 app.post('/games', (req, res) => {   
     const { id, name, genre, releaseDate, platform, rating} = req.body;
-    const game = {id, name, genre, releaseDate, platform, rating};
+    const game = { id, name, genre, releaseDate, platform, rating };
     games.push(game);
     res.status(201).json(game);
 })
