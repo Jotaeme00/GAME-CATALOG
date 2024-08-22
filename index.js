@@ -40,9 +40,22 @@ const games = [
 ]
 
   
-app.get('/games', (req, res) => {   
+/*app.get('/games', (req, res) => {   
     res.send(games)
 })
+*/
+
+app.get('/games/:id', (req, res) => {
+    const { id } = req.params;
+    const game = games.find(g => g.id == id);
+    
+    if (game) {
+        res.json(game);
+    } else {
+        res.status(404).send('Game not found');
+    }
+});
+
 
 app.post('/games', (req, res) => {   
     const { id, name, genre, releaseDate, platform, rating} = req.body;
@@ -50,7 +63,39 @@ app.post('/games', (req, res) => {
     games.push(game);
     res.status(201).json(game);
 })
- 
+
+
+app.put('/games/:id', (req, res) => {    
+    const {id} = req.params;
+    const { name, genre, releaseDate, platform, rating} = req.body;
+    const game = games.find (g => g.id == id);
+
+    if (game){  
+        game.name = name;
+        game.genre = genre;
+        game.releaseDate = releaseDate;
+        game.platform = platform;
+        game.rating = rating;
+        res.json(game)  
+    } else {    
+        res.status(404).send('Game not found')
+    }
+    
+})
+
+app.delete('/games/:id', (req, res) => {    
+    const {id} = req.params;
+    const index = games.findIndex(g => g.id == id);
+
+    if ( index !== -1) {    
+        games.splice(index, 1);
+        res.status(204).send();
+    } else {    
+        res.status(404).send('Game not found')
+    }
+})
+
+
 
 app.get('/', (req,res) => { 
     res.send('Hello World');
