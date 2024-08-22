@@ -28,7 +28,15 @@ const games = [
        "releaseDate": "2016",
        "platform": "Multiplataform",
        "rating": 2000   
-}   
+},
+{   
+    "id": 4,
+        "name": "Fortnite",
+        "genre": "Battle Royale",
+       "releaseDate": "2015",
+       "platform": "Multiplataform",
+       "rating": 2000  
+}
 ]
 
   
